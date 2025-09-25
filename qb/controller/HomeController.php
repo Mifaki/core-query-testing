@@ -6,7 +6,7 @@ class HomeController extends CoreController
     {
 
         $service = new QBService();
-        $post    = $service->getPosts();
+        $post    = $service->getProducts();
 
         $this->ui->useCoreLib('core-ui');
         $this->ui->usePlugin('bootstrap');

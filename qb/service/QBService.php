@@ -2,7 +2,7 @@
 
 class QBService extends CoreService
 {
-    public function getPosts($limit = 100)
+    public function getProducts($limit = 100)
     {
         $db = self::instance('fake-e-commerce');
 
@@ -13,7 +13,7 @@ class QBService extends CoreService
         return ($db->query($qb->get()));
     }
 
-    public function createPost($title, $desc, )
+    public function createProducts($title, $desc, )
     {
         try {
             $db = self::instance('fake-e-commerce');

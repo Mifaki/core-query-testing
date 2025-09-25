@@ -9,15 +9,14 @@ class QBService extends CoreService
         $qb = QB::instance('products')
             ->select()
             ->limit($limit);
+
+        $products = $db->query($qb->get());
+
         $xhprof_data = xhprof_disable();
 
         $profiling_results = ExtractXhprofStats::extractStats($xhprof_data);
         $summary           = ExtractXhprofStats::getSummary($profiling_results);
         error_log("Profiling Summary: " . json_encode($summary));
-
-        $products = $db->query($qb->get());
-
-        var_dump($profiling_results);
 
         return [
             'products'  => $products,
